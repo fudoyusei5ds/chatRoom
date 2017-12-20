@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<div></div>
+<script>
+var str1="<h1>{{name}}</h1>";
+var obj1={name:"tangjiawei"};
+function htmlTemplate(str,obj){
+	for(let key in obj){
+		let temp='{{'+String(key)+'}}';
+		while(str.indexOf(temp)!==-1){
+			str=str.replace(temp,obj[key]);
+		}
+	}
+	return str;
+}
+
+str1=htmlTemplate(str1,obj1);
+
+document.querySelector("div").innerText+=str1;
+
+</script>
+</body>
+</html>

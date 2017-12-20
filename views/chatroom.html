@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}的聊天室</title>
+    <link rel="stylesheet" href="fix.css">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<div class="background">
+    <img src="{{name}}-background.jpg" style="height:100%;width:100%">
+</div>
+<div class="container">
+    <div class="header">
+    </div>
+	<div class="content">
+        <div class="left-bar">
+            <div class="portrait">
+                <img src="{{name}}.jpg" alt="这里是头像" style="width:90px;height:90px;border-radius:100%">
+                <p id="username">{{name}}</p>
+            </div>
+            <div class="change-pic">
+                <div class="button-pt">修改用户头像</div>
+                <form id="change-pt" action="/changePt" method="post" enctype="multipart/form-data">
+                    <input type="file" name="pt-pic" class="upload">
+                    <input type="button" id="pt-upload" value="确定">
+                </form>
+                <div class="button-bg">修改背景图片</div>
+                <form action="/changeBg" method="post" id="change-bg" enctype="multipart/form-data">
+                    <input type="file" name="bg-pic" class="upload">
+                    <input type="button" id="bg-upload" value="确定">
+                </form>
+            </div>
+        </div>
+        <div class="main">
+            <div class="messagebox">
+                <!-- <div class="message">
+                    <p>tangjiawei:</p>
+                    <span>hello everyone!!!</span>
+                </div> -->
+            </div>
+            <div class="input">
+                <input type="text" placeholder="for the people who are still alive.">
+                <div class="input-button">
+                    <img src="send.png" alt="发送">
+                </div>
+            </div>
+        </div>
+        <div class="right-bar">
+            <!-- <div class="alluserinfo">
+                <img src="tangjiawei.jpg" alt="">
+                <div>ID:<p>tangjiawei</p></div>
+            </div> -->
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+    var username=$("#username").text();
+    var ws=new WebSocket('ws://localhost:3000/'+document.cookie);
+    ws.onopen=function(msg){
+        console.log(msg);
+    }
+    ws.onmessage = function(msg) { 
+        appendMessage(msg);
+    };
+
+    var messageList=[];
+    var userList=[];
+    $(".input-button").click(function(){
+        var inputMsg=$(".input>input").val();
+        if(inputMsg){
+            $(".input>input").val("");
+            ws.send(inputMsg);
+        }
+    });
+
+    function appendMessage(obj){
+        var _username=obj.data;
+        var _msg=_username.split("###")[1];
+        _username=_username.split("###")[0];
+        var html_01=`<div class="message">
+                        <p>${_username}:</p>
+                        <span>${_msg}</span>
+                    </div>`;
+        $(".messagebox").append(html_01);
+    }
+
+    $(".button-pt").click(function(){
+        $("#change-pt").slideToggle("slow");
+    });
+    $(".button-bg").click(function(){
+        $("#change-bg").slideToggle("slow");
+    });
+    $("#pt-upload").click(function(){
+        $("#change-pt").submit();
+    });
+    $("#bg-upload").click(function(){
+        $("#change-bg").submit();
+    });
+});
+
+</script>
+</body>
+</html>

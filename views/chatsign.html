@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="fix.css">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<div class="background">
+    <img src="background.jpg" style="height:100%;width:100%">
+</div>
+<div class="container">
+    <div class="header">
+    </div>
+	<div class="content">
+        <div class="sign-box">
+            <form id="denglu-box" action="/sign-in" method="POST">
+                <label>账号:</label>
+                <input type="text" id="username" name="username"><br>
+                <label>密码:</label>
+                <input type="password" id="password" name="password">
+                <p id="sgInfo"></p>
+                <button type="button" id="denglu">登录</button>
+                <button type="button" class="sign-box-change-button">注册</button>
+            </form>
+            <form id="zhuce-box" style="display:none" action="register" method="POST">
+                <label>账号:</label>
+                <input type="text" id="new-username" name="username">
+                <p id="nuInfo"></p>
+                <label>密码:</label>
+                <input type="password" id="new-password" name="password">
+                <p id="npInfo"></p>
+                <label>确认:</label>
+                <input type="password" id="confirm"><br>
+                <button type="button" id="zhuce">注册</button>
+                <button type="button" class="sign-box-change-button">登录</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</div>
+<script src="signin.js"></script>
+</body>
+</html>

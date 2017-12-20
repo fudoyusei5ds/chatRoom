@@ -1,0 +1,212 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+html{
+    height: 100%;
+    overflow:hidden;
+}
+body{
+    height: 100%;
+}
+
+body>*{
+    height:100%;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+body>.background{
+    z-index: -1;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.header{
+    flex-basis: 100px;
+    width: 100%;
+    justify-self: flex-start; 
+    border-bottom: 1px solid #ddd;
+}
+.content{
+    flex: 1 0 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.footer{
+    border-top: 1px solid #ddd;
+    flex-basis: 100px;
+    width: 100%;
+    justify-self: flex-end;
+}
+.left-bar{
+    flex: 0 1 20%;
+}
+.main{
+    flex: 1 1 60%;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.right-bar{
+    flex: 0 1 20%;
+}
+
+.left-bar{
+    text-align: center;
+    color:#fff;
+}
+.left-bar>*{
+    margin: 10px auto;
+}
+
+.sign-box{
+    width:40%;
+    margin: 25px auto;
+    text-align: center;
+    font-size:25px;
+    color:white;
+}
+.sign-box input{
+    height:25px;
+    width:150px;
+    font-size:24px;
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid #eee;
+    color:white;
+    margin: 10px auto;
+}
+.sign-box button{
+    font-size:24px;
+    color:#eee;
+    background-color: rgba(0,0,0,0.5);
+    margin: 10px auto;
+    border: none;
+    padding: 5px;
+}
+
+.sign-box button:hover{
+    cursor: pointer;
+    background-color:rgba(238, 10, 10, 0.5);
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.messagebox{
+    color:white;
+    font-size:20px;
+    width:100%;
+    overflow: auto;
+    max-height: 392px;
+}
+.messagebox>.message{
+    margin: 10px;
+}
+.messagebox>.message>span{
+    padding-left:25px;
+}
+.input{
+    margin: 0 auto;
+    width: 100%;
+    flex:0 0 40px;
+    border-top:1px solid white; 
+}
+.input>input{
+    color:#3D3460;
+    height:100%;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    width:80%;
+    margin-left:10%;
+    border-left:1px solid white;
+    font-size:20px;
+    padding-left: 10px;
+}
+.input>.input-button{
+    height:40px;
+    width:60px;
+    float:right;
+    color:white;
+    border-left: 1px solid white;
+}
+.input>.input-button:hover{
+    cursor: pointer;
+    background-color: rgba(100, 96, 96, 0.3);
+}
+.input>.input-button>img{
+    height: 40px;
+    width: 40px;
+    margin: 0 10px;
+}
+
+.right-bar{
+    color:white;
+    font-size: 20px;
+    max-height:433px;
+    overflow: auto;
+}
+
+.alluserinfo{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+}
+.alluserinfo>img{
+    width:60px;
+    height:60px;
+    border-radius: 100%;
+    padding: 2px;
+    border: 1px solid white;
+}
+.alluserinfo>div{
+    padding: 6px;
+    margin-left: 6px;
+}
+.changepic{
+    width:100%;
+}
+#changept{
+    width:100%;
+}
+#changebg{
+    width:100%;
+}
+
+.change-pic{
+    width:100%;
+    margin: 40px 0;
+}
+.change-pic>div:hover{
+    cursor: pointer;
+    background-color: rgba(238, 10, 10, 0.5)
+}
+.change-pic>.button-pt{
+    border-bottom: 1px solid white;
+    border-top:1px solid white;
+}
+.change-pic>.button-bg{
+    border-bottom: 1px solid white;
+}
+
+.change-pic>form{
+    padding:25px 0;
+    background: rgba(255,255,255,0.5);
+    border-bottom: 1px solid white;
+    display: none;
+}
+.change-pic>form>input{
+    width: 20%;
+}
+.change-pic>form>.upload{
+    width:55%;
+}

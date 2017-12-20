@@ -1,0 +1,9 @@
+{
+    "name": "chatroom",
+    "version": "1.0.0",
+    "description": "a simple online chatroom",
+    "author": "fudoyusei",
+    "dependencies": {
+        "ws": "1.1.1"
+    }
+}
